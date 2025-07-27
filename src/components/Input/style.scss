@@ -1,0 +1,83 @@
+@use "sass:color";
+@use "@/styles/variables" as *;  // 直接导入变量
+
+.Self-input__wrapper {
+  margin-bottom: 16px;
+}
+
+.Self-input__label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: $text-primary;
+}
+
+.Self-input__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.Self-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: $font-size-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: $transition;
+  outline: none;
+  color: $text-primary;
+  background-color: white;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+
+  &--with-icon {
+    padding-left: 36px;
+  }
+
+  &--disabled {
+    background-color: $disabled-bg;
+    cursor: not-allowed;
+  }
+
+  &--error {
+    border-color: $danger;
+
+    &:focus {
+      border-color: $danger;
+      box-shadow: 0 0 0 2px rgba($danger, 0.2);
+    }
+  }
+}
+
+.Self-input__prefix,
+.Self-input__suffix {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+}
+
+.Self-input__prefix {
+  left: 12px;
+}
+
+.Self-input__suffix {
+  right: 12px;
+}
+
+.Self-input__error-message {
+  margin-top: 4px;
+  font-size: $font-size-small;
+  color: $danger;
+}
+
+.Self-input__help-text {
+  margin-top: 4px;
+  font-size: $font-size-small;
+  color: $text-secondary;
+}
