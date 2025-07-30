@@ -45,10 +45,10 @@ import { defineProps, defineEmits, onMounted, computed, ref } from 'vue'
 import type { DayType } from './types'
 
 const props = defineProps({
-    showToday: {
-        type: Boolean,
-        default: false
-    },
+  showToday: {
+      type: Boolean,
+      default: false
+  },
   initDate: {
     type: [String, Number, Date],
     default: () => dayjs()
