@@ -9,11 +9,14 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   message: string
   position?: 'center' | 'top' | 'bottom'
   duration?: number
-}>()
+}>(), {
+  position: 'center',
+  duration: 3000 // 你也可以顺便设一个默认时长
+})
 
 const visible = ref(true)
 let timer: number

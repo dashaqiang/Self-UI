@@ -1,0 +1,77 @@
+.calendar-wrapper{
+   
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to right, #4a6cf7, #6a53f9);
+        color: white;
+        .pre, .next{
+            > svg:active{
+                transition: all .2s ease;
+                transform: scale(1.3);
+            }
+        }
+    }
+    
+    .header > div {
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    .week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        background-color: #f0f5ff;
+        padding: 15px 0;
+        border-bottom: 1px solid #eaeff5;
+    }
+    
+    .week-item {
+        text-align: center;
+        font-weight: 600;
+        color: #4a6cf7;
+    }
+    .days{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+    .day-item{
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        position: relative;
+        transition: all 0.2s ease;
+        border-radius: 50%;
+        .day-value {
+            position: relative;
+            z-index: 2;
+        }
+    }
+    .day-item:hover {
+        background-color: #e0e7ff;
+        transform: scale(1.05);
+    }
+    
+    .day-item:active {
+        background-color: #d0d9ff;
+        transform: scale(0.95);
+    }
+    .today{
+        background-color: #d0d9ff;
+    }
+    
+}

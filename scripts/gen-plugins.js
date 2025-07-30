@@ -6,19 +6,16 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const pluginsDir = path.resolve(__dirname, '../src/plugins')
-// const files = fs.readdirSync(pluginsDir)
-// const lines = files
-//   .filter(name => name.endsWith('.ts') && name !== 'index.ts')
-//   // .map(name => `export { default as ${name.replace('.ts', '')} } from './${name.replace('.ts', '')}'`)
-//   .map(name => `export * from './${name.replace('.ts', '')}'`)
-const files = fs.readdirSync(pluginsDir)
-  .filter(name => name.endsWith('.ts') && name !== 'index.ts')
+
+// Read all subdirectories in plugins directory
+const dirs = fs.readdirSync(pluginsDir, { withFileTypes: true })
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name)
 
 const lines = []
-for (const name of files) {
-  const base = name.replace('.ts', '')
-  lines.push(`export { default as ${base} } from './${base}'`)
-  lines.push(`export * from './${base}'`)
+for (const dir of dirs) {
+  lines.push(`export { default as ${dir} } from './${dir}'`)
+  lines.push(`export * from './${dir}'`)
 }
 
 fs.writeFileSync(
