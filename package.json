@@ -9,6 +9,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "dev": "vite --config playground/vite.config.ts",
     "gen:components": "node scripts/gen-components.js",
     "gen:plugins": "node scripts/gen-plugins.js",
